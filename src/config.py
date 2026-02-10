@@ -12,17 +12,37 @@ except ImportError:
 
 load_dotenv()
 
-# --- API ---
-API_KEY = os.getenv("GEMINI_API_KEY")
-MODEL = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
-API_URL = (
-    f"https://generativelanguage.googleapis.com/v1beta/models/"
-    f"{MODEL}:generateContent?key={API_KEY}"
-)
+# --- OpenAI API ---
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+if not OPENAI_API_KEY:
+    print("ERRO: OPENAI_API_KEY não encontrada no .env")
+    sys.exit(1)
 
-# --- Rate limit (free tier: 15 RPM) ---
-RPM_LIMIT = 15
-DELAY = 60 / RPM_LIMIT + 0.5  # ~4.5s entre chamadas
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+
+# --- Constantes de modo ---
+MODE_FLEX = "flex"
+MODE_BATCH = "batch"
+MODE_STANDARD = "standard"
+
+# --- Tabela de preços (USD por 1M tokens) ---
+PRICING = {
+    "gpt-4o-mini": {
+        "standard": {"input": 0.15, "output": 0.60},
+        "batch":    {"input": 0.075, "output": 0.30},
+        "flex":     {"input": 0.075, "output": 0.30},
+    },
+    "gpt-4o": {
+        "standard": {"input": 2.50, "output": 10.00},
+        "batch":    {"input": 1.25, "output": 5.00},
+        "flex":     {"input": 1.25, "output": 5.00},
+    },
+}
+
+# --- Batch API config ---
+BATCH_POLL_INTERVAL = 30  # segundos entre polls
+BATCH_COMPLETION_WINDOW = "24h"
+BATCH_ENDPOINT = "/v1/chat/completions"
 
 # --- Caminhos (relativos à raiz do projeto) ---
 PROJECT_ROOT = Path(__file__).parent.parent
@@ -32,3 +52,21 @@ GABARITO_PATH = DATA_DIR / "gabarito.json"
 RESPOSTAS_DIR = DATA_DIR / "respostas"
 RESULTADOS_DIR = DATA_DIR / "resultados"
 PROMPT_PATH = DATA_DIR / "prompt_juiz.txt"
+
+
+# --- Funções utilitárias ---
+def calculate_cost(model: str, mode: str, prompt_tokens: int, completion_tokens: int) -> float:
+    """Calcula custo em USD baseado no modelo, modo e tokens usados."""
+    if model not in PRICING:
+        print(f"WARNING: Modelo '{model}' não encontrado na tabela de preços. Custo = 0.0")
+        return 0.0
+    
+    if mode not in PRICING[model]:
+        print(f"WARNING: Modo '{mode}' não encontrado para modelo '{model}'. Custo = 0.0")
+        return 0.0
+    
+    pricing = PRICING[model][mode]
+    cost_input = (prompt_tokens / 1_000_000) * pricing["input"]
+    cost_output = (completion_tokens / 1_000_000) * pricing["output"]
+    
+    return cost_input + cost_output
