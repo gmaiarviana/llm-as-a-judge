@@ -1,0 +1,956 @@
+{
+  "version": "1.1",
+  "total_tasks": 100,
+
+  "L1_01": {
+    "level": 1,
+    "question": "Qual é o custo médio de coleta de matéria-prima por tonelada?",
+    "answer": "C",
+    "answer_value": "R$180/ton",
+    "source": "Doc 4 — Seção 2, Logística de coleta"
+  },
+  "L1_02": {
+    "level": 1,
+    "question": "Qual é o custo anual da certificação orgânica IBD da planta industrial da Cajueiro Bravo?",
+    "answer": "C",
+    "answer_value": "R$45.000",
+    "source": "Doc 3 — Seção 6, Cenário Regulatório"
+  },
+  "L1_03": {
+    "level": 1,
+    "question": "Qual foi o faturamento da Cajueiro Bravo em 2025?",
+    "answer": "B",
+    "answer_value": "R$10,2 milhões",
+    "source": "Doc 1 — Seção 3, Resumo do Primeiro Ano"
+  },
+  "L1_04": {
+    "level": 1,
+    "question": "Quantos funcionários a Cajueiro Bravo tinha em dezembro de 2025?",
+    "answer": "B",
+    "answer_value": "87",
+    "source": "Doc 1 — Seção 3, Resumo do Primeiro Ano"
+  },
+  "L1_05": {
+    "level": 1,
+    "question": "Qual é a meta de receita bruta da Cajueiro Bravo para 2026?",
+    "answer": "C",
+    "answer_value": "R$18 milhões",
+    "source": "Doc 1 — Seção 4, OKR 1 KR1"
+  },
+  "L1_06": {
+    "level": 1,
+    "question": "Qual é o percentual mínimo de receita que a Cajueiro Bravo pretende manter no mercado interno em 2026?",
+    "answer": "C",
+    "answer_value": "70%",
+    "source": "Doc 1 — Seção 4, OKR 1 KR2"
+  },
+  "L1_07": {
+    "level": 1,
+    "question": "Quantas famílias parceiras a Cajueiro Bravo tinha em dezembro de 2025?",
+    "answer": "B",
+    "answer_value": "42",
+    "source": "Doc 1 — Seção 3, Resumo do Primeiro Ano"
+  },
+  "L1_08": {
+    "level": 1,
+    "question": "Em que mês de 2025 a planta de beneficiamento da Cajueiro Bravo foi inaugurada?",
+    "answer": "B",
+    "answer_value": "Março",
+    "source": "Doc 1 — Seção 3, Marcos principais"
+  },
+  "L1_09": {
+    "level": 1,
+    "question": "Qual foi a margem bruta consolidada da Cajueiro Bravo em 2025?",
+    "answer": "C",
+    "answer_value": "34,2%",
+    "source": "Doc 2 — Seção 1, DRE 2025"
+  },
+  "L1_10": {
+    "level": 1,
+    "question": "Qual foi a margem líquida da Cajueiro Bravo em 2025?",
+    "answer": "B",
+    "answer_value": "11,2%",
+    "source": "Doc 2 — Seção 1, DRE 2025"
+  },
+  "L1_11": {
+    "level": 1,
+    "question": "Qual foi a receita de castanha beneficiada da Cajueiro Bravo em 2025?",
+    "answer": "B",
+    "answer_value": "R$5,8 milhões",
+    "source": "Doc 2 — Seção 1, DRE 2025"
+  },
+  "L1_12": {
+    "level": 1,
+    "question": "Qual percentual da receita anual de 2025 foi concentrado no Q4 (outubro a dezembro)?",
+    "answer": "C",
+    "answer_value": "47%",
+    "source": "Doc 2 — Seção 2, Fluxo de Caixa 2025"
+  },
+  "L1_13": {
+    "level": 1,
+    "question": "Qual é o valor total de CAPEX planejado pela Cajueiro Bravo para 2026?",
+    "answer": "C",
+    "answer_value": "R$1.950.000",
+    "source": "Doc 2 — Seção 5, CAPEX 2026"
+  },
+  "L1_14": {
+    "level": 1,
+    "question": "Qual foi o valor total aportado pelo fundador entre 2024 e 2025 para montar a operação?",
+    "answer": "C",
+    "answer_value": "R$3,2 milhões",
+    "source": "Doc 2 — Seção 6, Indicadores Financeiros"
+  },
+  "L1_15": {
+    "level": 1,
+    "question": "Qual é a margem bruta média de exportação da Cajueiro Bravo?",
+    "answer": "D",
+    "answer_value": "58%",
+    "source": "Doc 2 — Seção 1, Margem bruta por canal"
+  },
+  "L1_16": {
+    "level": 1,
+    "question": "Qual o percentual da área plantada de cajueiros no Brasil que está concentrado no Ceará?",
+    "answer": "C",
+    "answer_value": "63%",
+    "source": "Doc 3 — Seção 1, Panorama da Cajucultura"
+  },
+  "L1_17": {
+    "level": 1,
+    "question": "Quanto faturou o mercado brasileiro de orgânicos em 2024?",
+    "answer": "C",
+    "answer_value": "R$8,4 bilhões",
+    "source": "Doc 3 — Seção 2, Mercado de Orgânicos"
+  },
+  "L1_18": {
+    "level": 1,
+    "question": "Qual é o valor anual do contrato com a Castanha Premium Europa?",
+    "answer": "C",
+    "answer_value": "R$3.300.000",
+    "source": "Doc 3 — Seção 4, Pipeline de Clientes"
+  },
+  "L1_19": {
+    "level": 1,
+    "question": "Qual é a taxa de conversão histórica de novos contratos da Cajueiro Bravo?",
+    "answer": "C",
+    "answer_value": "70%",
+    "source": "Doc 3 — Seção 4, Pipeline de Clientes"
+  },
+  "L1_20": {
+    "level": 1,
+    "question": "Qual é o valor anual estimado do contrato PNAE — municípios do litoral leste?",
+    "answer": "B",
+    "answer_value": "R$800.000",
+    "source": "Doc 3 — Seção 4, Pipeline de Clientes"
+  },
+  "L1_21": {
+    "level": 1,
+    "question": "Qual é o crescimento médio anual do mercado de orgânicos no Brasil nos últimos 5 anos?",
+    "answer": "C",
+    "answer_value": "15%",
+    "source": "Doc 3 — Seção 2, Mercado de Orgânicos"
+  },
+  "L1_22": {
+    "level": 1,
+    "question": "Qual é a capacidade instalada da linha de castanha da Cajueiro Bravo?",
+    "answer": "C",
+    "answer_value": "500 ton/ano",
+    "source": "Doc 4 — Seção 1, Capacidade Produtiva"
+  },
+  "L1_23": {
+    "level": 1,
+    "question": "Qual foi o volume de castanha in natura coletado pela rede de produtores em 2025?",
+    "answer": "B",
+    "answer_value": "320 ton",
+    "source": "Doc 4 — Seção 2, Produção da rede em 2025"
+  },
+  "L1_24": {
+    "level": 1,
+    "question": "Qual foi o percentual do diesel no custo total de coleta em 2025?",
+    "answer": "C",
+    "answer_value": "38%",
+    "source": "Doc 4 — Seção 2, Logística de coleta"
+  },
+  "L1_25": {
+    "level": 1,
+    "question": "Qual é a capacidade de armazenamento da câmara fria atual (dezembro/2025)?",
+    "answer": "B",
+    "answer_value": "80 ton",
+    "source": "Doc 4 — Seção 1, Capacidade Produtiva"
+  },
+
+  "L2_01": {
+    "level": 2,
+    "question": "Como a empresa endereça o risco de seca nas diferentes áreas do planejamento?",
+    "criteria": [
+      "Menciona fundo de irrigação emergencial R$80K (Doc 4, R1)",
+      "Menciona contingência de R$150K para eventos climáticos (Doc 2, Orçamento)",
+      "Menciona OKR de diversificação de frutas por resiliência climática (Doc 1, OKR 4)"
+    ],
+    "source": "Doc 1 (OKR 4), Doc 2 (Orçamento), Doc 4 (Mapa de riscos R1)"
+  },
+  "L2_02": {
+    "level": 2,
+    "question": "Qual é o papel da Embrapa no planejamento da Cajueiro Bravo?",
+    "criteria": [
+      "Menciona parceria estratégica / convênio de cooperação técnica (Doc 1, OKR 5)",
+      "Menciona como fonte dos clones BRS 226 e/ou BRS 274 (Doc 4, Seção 2)"
+    ],
+    "source": "Doc 1 (OKR 5), Doc 4 (Seção 2)"
+  },
+  "L2_03": {
+    "level": 2,
+    "question": "Quais informações sobre o contrato com a NatuBrasil aparecem no planejamento da Cajueiro Bravo para 2026?",
+    "criteria": [
+      "Menciona valor de R$1,8M/ano em negociação avançada com início previsto para maio/2026 (Doc 3)",
+      "Menciona inclusão na projeção de receita 2026 na linha varejo regional (Doc 2)",
+      "Menciona demanda operacional: 15 ton de castanha embalada e 50 ton de polpa (Doc 4)"
+    ],
+    "source": "Doc 2 (Projeção receita por canal), Doc 3 (Pipeline clientes), Doc 4 (Metas de produção Seção 1)"
+  },
+  "L2_04": {
+    "level": 2,
+    "question": "Como o contrato NatuBrasil está representado na projeção financeira e no pipeline comercial de 2026?",
+    "criteria": [
+      "Menciona contrato em negociação avançada com valor de R$1,8M/ano (Doc 3)",
+      "Menciona produtos: castanha embalada e polpas (Doc 3)",
+      "Menciona inclusão na projeção financeira 2026 dentro da linha varejo regional (R$4,2M total) (Doc 2)"
+    ],
+    "source": "Doc 2 (Projeção receita por canal, nota), Doc 3 (Pipeline clientes)"
+  },
+  "L2_05": {
+    "level": 2,
+    "question": "Quais medidas não-financeiras de mitigação de risco climático estão previstas no planejamento de 2026?",
+    "criteria": [
+      "Menciona diversificação de frutas menos sensíveis à seca (acerola, pitaya) como mitigação (Doc 4, R1)",
+      "Menciona seguro agrícola para produtores parceiros (Doc 4, R1)",
+      "Menciona OKR de diversificação: meta de 4 frutas em produção contínua para reduzir dependência do caju (Doc 1, OKR 4)"
+    ],
+    "source": "Doc 1 (OKR 4), Doc 4 (Mapa de riscos R1)"
+  },
+  "L2_06": {
+    "level": 2,
+    "question": "Quais são as entregas esperadas da parceria com a Embrapa em 2026?",
+    "criteria": [
+      "Menciona convênio formal de cooperação técnica previsto para Q1/2026 (Doc 1, OKR 5)",
+      "Menciona recebimento de novos clones para teste em SAFs parceiros (Doc 1, OKR 5)",
+      "Menciona distribuição de clones BRS 226/BRS 274 às novas famílias via convênio Embrapa (Doc 4, Seção 5)"
+    ],
+    "source": "Doc 1 (OKR 5, Cronograma Q1), Doc 4 (Seção 5)"
+  },
+  "L2_07": {
+    "level": 2,
+    "question": "Quais são os detalhes do projeto de instalação da linha 2 de polpa?",
+    "criteria": [
+      "Menciona investimento de R$1.200.000 (Doc 2)",
+      "Menciona operação plena prevista para julho/2026 (Doc 4)",
+      "Menciona capacidade de 500 ton/ano para processar polpa de caju, acerola e frutas sazonais (Doc 4)"
+    ],
+    "source": "Doc 2 (CAPEX Seção 5), Doc 4 (Expansão Seção 3)"
+  },
+  "L2_08": {
+    "level": 2,
+    "question": "Qual é a situação da câmara fria e o plano de ampliação para 2026?",
+    "criteria": [
+      "Menciona capacidade atual de 80 ton com limitação identificada na safra 2025 (Doc 4 ou Doc 1)",
+      "Menciona investimento de R$400.000 para ampliação (Doc 2)",
+      "Menciona meta de 200 ton de capacidade total (80 atual + 120 ampliação) operacional em abril/2026 (Doc 4)"
+    ],
+    "source": "Doc 1 (Lições Seção 3), Doc 2 (CAPEX Seção 5), Doc 4 (Capacidade Seção 1, Expansão Seção 3)"
+  },
+  "L2_09": {
+    "level": 2,
+    "question": "Qual é o plano de aquisição de veículos refrigerados para 2026?",
+    "criteria": [
+      "Menciona aquisição de 2 veículos refrigerados com investimento de R$350.000 (Doc 2 ou Doc 4)",
+      "Menciona entrega prevista para março/2026 e contratação de 2 motoristas (Doc 4)",
+      "Menciona economia esperada de ~R$180K/ano em frete terceirizado (Doc 2)"
+    ],
+    "source": "Doc 2 (CAPEX Seção 5), Doc 4 (Expansão Seção 3, Contratação Seção 4)"
+  },
+  "L2_10": {
+    "level": 2,
+    "question": "Qual é o panorama de certificações da Cajueiro Bravo em janeiro de 2026?",
+    "criteria": [
+      "Menciona certificação IBD em renovação: vencimento março/2026, novo certificado previsto abril/2026 (Doc 4)",
+      "Menciona custo anual IBD: R$45.000 (planta) + R$25.000 (produtores) (Doc 3)",
+      "Menciona Fair Trade em processo com auditoria inicial prevista para Q3/2026 (Doc 4)"
+    ],
+    "source": "Doc 3 (Cenário regulatório Seção 6), Doc 4 (Certificações Seção 6)"
+  },
+  "L2_11": {
+    "level": 2,
+    "question": "Como a exportação está posicionada no planejamento da Cajueiro Bravo para 2026?",
+    "criteria": [
+      "Menciona diretriz estratégica de manter mínimo 70% da receita no mercado interno (Doc 1, OKR 1)",
+      "Menciona exportação projetada de R$4,8M em 2026, representando 26,7% da receita (Doc 2)",
+      "Menciona clientes de exportação: Castanha Premium Europa e AcerolaPure Japan (Doc 3)"
+    ],
+    "source": "Doc 1 (OKR 1 KR2, Carta), Doc 2 (Receita por canal Seção 3), Doc 3 (Pipeline Seção 4)"
+  },
+  "L2_12": {
+    "level": 2,
+    "question": "Qual é a situação do PNAE no planejamento comercial e financeiro de 2026?",
+    "criteria": [
+      "Menciona contrato PNAE com valor de R$800K, via chamada pública com alta probabilidade, início Q2/2026 (Doc 3)",
+      "Menciona receita PNAE projetada de R$1.500.000 para 2026 (Doc 2)",
+      "Menciona que PNAE exige certificação orgânica vigente e SIF para produtos processados (Doc 3)"
+    ],
+    "source": "Doc 2 (Receita por canal Seção 3), Doc 3 (Pipeline Seção 4, Regulatório Seção 6)"
+  },
+  "L2_13": {
+    "level": 2,
+    "question": "Quais são os impactos da sazonalidade do caju na operação e nas finanças da Cajueiro Bravo?",
+    "criteria": [
+      "Menciona que a safra de caju se concentra em setembro a dezembro, com ~70% do volume anual (Doc 4)",
+      "Menciona que o Q4/2025 concentrou 47% da receita anual (Doc 2)",
+      "Menciona que a empresa operou com caixa negativo no 1º semestre de 2025 (Doc 2)"
+    ],
+    "source": "Doc 2 (Fluxo de caixa Seção 2), Doc 4 (Sazonalidade Seção 2)"
+  },
+  "L2_14": {
+    "level": 2,
+    "question": "Qual é o plano de contratação para a equipe operacional e de campo em 2026?",
+    "criteria": [
+      "Menciona contratação de 8 operadores para a linha 2 com treinamento em maio-junho/2026 (Doc 4)",
+      "Menciona contratação de 2 técnicos de campo em março/2026 (Doc 4)",
+      "Menciona orçamento de R$630.000 para assistência técnica (equipe de campo) em 2026 (Doc 2)"
+    ],
+    "source": "Doc 2 (Orçamento Seção 4), Doc 4 (Contratação Seção 4)"
+  },
+  "L2_15": {
+    "level": 2,
+    "question": "Como está estruturada a logística de coleta e distribuição da Cajueiro Bravo?",
+    "criteria": [
+      "Menciona 3 rotas de coleta cobrindo 5 municípios, com frequência de 2-3 vezes por semana na safra (Doc 4)",
+      "Menciona custo de coleta de R$180/ton com diesel representando 38% do custo (Doc 4)",
+      "Menciona orçamento de logística de R$1.200.000 para 2026 (Doc 2)"
+    ],
+    "source": "Doc 2 (Orçamento Seção 4), Doc 4 (Logística Seção 2)"
+  },
+  "L2_16": {
+    "level": 2,
+    "question": "Quais frutas além do caju a empresa planeja processar em 2026 e qual é o estágio atual?",
+    "criteria": [
+      "Menciona acerola como fruta principal já em produção, com 120 ton coletadas em 2025 (Doc 4)",
+      "Menciona polpas sazonais: manga, goiaba, maracujá com início previsto a partir de Q3/2026 (Doc 1 ou Doc 4)",
+      "Menciona meta de 4 frutas em produção contínua (Doc 1, OKR 4)"
+    ],
+    "source": "Doc 1 (OKR 3 KR2, OKR 4 KR2), Doc 4 (Produção da rede Seção 2, Cronograma Seção 8)"
+  },
+  "L2_17": {
+    "level": 2,
+    "question": "Como a instabilidade geopolítica global aparece no planejamento da Cajueiro Bravo?",
+    "criteria": [
+      "Menciona posição do fundador: SAF orgânico garante autonomia de insumos frente à crise global de fertilizantes (Doc 1)",
+      "Menciona oportunidades: consumidores mais sensíveis à origem e rastreabilidade, vantagem de custo estável para SAF orgânico (Doc 3)",
+      "Menciona ameaças: rotas marítimas instáveis, câmbio volátil, embalagens com componentes importados (Doc 3)"
+    ],
+    "source": "Doc 1 (Carta do fundador), Doc 3 (Cenário geopolítico Seção 7)"
+  },
+  "L2_18": {
+    "level": 2,
+    "question": "Qual é a situação atual e as metas para a rede de produtores parceiros em 2026?",
+    "criteria": [
+      "Menciona situação dez/2025: 42 famílias, 180 hectares em SAF, 5 municípios (Doc 4)",
+      "Menciona meta OKR: 80 famílias e 400 hectares até dezembro/2026, com taxa de adesão acima de 90% (Doc 1, OKR 3)",
+      "Menciona expansão para 2 novos municípios: Cascavel e Jaguaruana (Doc 4)"
+    ],
+    "source": "Doc 1 (OKR 3), Doc 4 (Rede de produtores Seções 2 e 5)"
+  },
+  "L2_19": {
+    "level": 2,
+    "question": "Quais incentivos fiscais e linhas de crédito a Cajueiro Bravo utiliza?",
+    "criteria": [
+      "Menciona linha de crédito FNE Verde do Banco do Nordeste com taxa subsidiada (Doc 2 ou Doc 3)",
+      "Menciona R$830.000 do CAPEX 2026 financiados via FNE Verde (Doc 2)",
+      "Menciona incentivos ADECE: redução de ICMS para agroindústrias (Doc 3)"
+    ],
+    "source": "Doc 2 (CAPEX Seção 5), Doc 3 (Incentivos Seção 6)"
+  },
+  "L2_20": {
+    "level": 2,
+    "question": "Qual é o panorama da castanha beneficiada na Cajueiro Bravo: receita, capacidade e mercado?",
+    "criteria": [
+      "Menciona receita de castanha: R$5,8M em 2025 com projeção de R$9M para 2026 (Doc 2)",
+      "Menciona capacidade de processamento: 500 ton/ano com meta de 450 ton em 2026 (Doc 4)",
+      "Menciona principais clientes de castanha (ex: Indústria A, Castanha Premium Europa, Distribuidora orgânicos) (Doc 3)"
+    ],
+    "source": "Doc 2 (DRE Seção 1, Projeção Seção 3), Doc 3 (Pipeline Seção 4), Doc 4 (Capacidade Seção 1)"
+  },
+  "L2_21": {
+    "level": 2,
+    "question": "Qual é o panorama da polpa de acerola na Cajueiro Bravo: receita, produção e clientes?",
+    "criteria": [
+      "Menciona receita: R$1,4M em 2025 com projeção de R$2,4M para 2026 (Doc 2)",
+      "Menciona produção de 120 ton em 2025, com safra distribuída de março a novembro (Doc 4)",
+      "Menciona clientes: AcerolaPure Japan (exportação) e Indústria B (nacional) (Doc 3)"
+    ],
+    "source": "Doc 2 (DRE Seção 1, Projeção Seção 3), Doc 3 (Pipeline Seção 4), Doc 4 (Produção Seção 2)"
+  },
+  "L2_22": {
+    "level": 2,
+    "question": "Quais são os clientes de exportação da Cajueiro Bravo e qual é sua contribuição financeira?",
+    "criteria": [
+      "Menciona Castanha Premium Europa com contrato de R$3,3M/ano renovado (Doc 3)",
+      "Menciona AcerolaPure Japan com contrato de R$1,5M/ano renovado (Doc 3)",
+      "Menciona exportação total projetada de R$4,8M em 2026, representando 26,7% da receita (Doc 2)"
+    ],
+    "source": "Doc 2 (Receita por canal Seção 3), Doc 3 (Pipeline Seção 4)"
+  },
+  "L2_23": {
+    "level": 2,
+    "question": "Qual é o plano para polpas sazonais (manga, goiaba, maracujá) em 2026?",
+    "criteria": [
+      "Menciona frutas planejadas: manga, goiaba e maracujá (Doc 1 ou Doc 4)",
+      "Menciona receita projetada de R$1.200.000 como linha nova em 2026 (Doc 2)",
+      "Menciona início de processamento previsto a partir de Q3/julho 2026 (Doc 1 ou Doc 4)"
+    ],
+    "source": "Doc 1 (OKR 3 KR2), Doc 2 (Projeção Seção 3), Doc 4 (Cronograma Seção 8)"
+  },
+  "L2_24": {
+    "level": 2,
+    "question": "Como a Cajueiro Bravo operacionaliza o aproveitamento integral do caju?",
+    "criteria": [
+      "Menciona princípio de zero desperdício: castanha, pedúnculo, casca, bagaço como produtos (Doc 1)",
+      "Menciona subprodutos LCC e farinha de bagaço com receita de R$900K em 2025 (Doc 2)",
+      "Menciona coleta de pedúnculo: 480 ton em 2025, anteriormente ~75% era desperdiçado (Doc 4)"
+    ],
+    "source": "Doc 1 (Valores Seção 2), Doc 2 (DRE Seção 1), Doc 4 (Produção Seção 2)"
+  },
+  "L2_25": {
+    "level": 2,
+    "question": "Qual é o panorama da polpa de caju na operação e nas finanças da empresa?",
+    "criteria": [
+      "Menciona receita: R$2,1M em 2025 com projeção de R$4,2M para 2026 (Doc 2)",
+      "Menciona capacidade da linha 1: 300 ton/ano, com 150 ton processadas em 2025 a 50% de utilização (Doc 4)",
+      "Menciona que polpa precisa ser congelada imediatamente após processamento, dependendo da câmara fria (Doc 4)"
+    ],
+    "source": "Doc 2 (DRE Seção 1, Projeção Seção 3), Doc 4 (Capacidade Seção 1)"
+  },
+
+  "L3_01": {
+    "level": 3,
+    "question": "A meta anual de processamento de polpa para 2026 é viável considerando o cronograma de instalação da linha 2?",
+    "criteria": [
+      "Identifica meta: 400 ton de polpa em 2026",
+      "Identifica que a linha 2 opera plenamente a partir de julho/2026, e a linha 1 tem capacidade de 300 ton/ano",
+      "Conclui que a meta é viável: linha 1 opera jan-jun (~150 ton) + capacidade combinada jul-dez (~400 ton), totalizando ~550 ton potenciais vs 400 ton de meta"
+    ],
+    "source": "Doc 2 (Projeção receita Seção 3), Doc 4 (Cronograma linha 2 Seção 3, Capacidade Seção 1)"
+  },
+  "L3_02": {
+    "level": 3,
+    "question": "O início dos contratos PNAE previstos para o primeiro semestre de 2026 enfrenta algum risco regulatório?",
+    "criteria": [
+      "Identifica que PNAE exige certificação orgânica vigente + SIF",
+      "Identifica que IBD vence março/2026 e renovação prevista abril",
+      "Conclui que há gap de ~1 mês sem certificação válida, criando risco para contratos PNAE do Q1-Q2"
+    ],
+    "source": "Doc 3 (Pipeline Seção 4), Doc 4 (Certificações Seção 6)"
+  },
+  "L3_03": {
+    "level": 3,
+    "question": "A receita projetada para polpas sazonais (manga, goiaba, maracujá) em 2026 é compatível com o cronograma de instalação da linha 2 de polpa?",
+    "criteria": [
+      "Identifica que polpas sazonais iniciam processamento a partir de julho/2026",
+      "Identifica receita projetada de polpas sazonais: R$1.200.000",
+      "Conclui que R$1.200.000 precisa ser gerada em no máximo 6 meses (jul-dez), exigindo ~R$200.000/mês de receita de polpas sazonais"
+    ],
+    "source": "Doc 2 (Projeção receita Seção 3), Doc 4 (Cronograma linha 2 Seção 3)"
+  },
+  "L3_04": {
+    "level": 3,
+    "question": "A meta de receita bruta para 2026 está coberta pelo pipeline comercial detalhado na análise de mercado?",
+    "criteria": [
+      "Identifica meta de receita: R$18.000.000 e pipeline total: R$18.500.000",
+      "Calcula estimativa realista com taxa de conversão 70%: R$12.900.000 + 70% × R$5.600.000 = R$16.820.000",
+      "Conclui que há gap de ~R$1.180.000 entre estimativa do pipeline (R$16,82M) e meta de receita (R$18M)"
+    ],
+    "source": "Doc 2 (Projeção receita Seção 3), Doc 3 (Pipeline Seção 4)"
+  },
+  "L3_05": {
+    "level": 3,
+    "question": "Os contratos em negociação no pipeline têm datas de início variadas ao longo de 2026. Considerando que nenhum começa em janeiro, qual seria a contribuição efetiva desses contratos para a receita do ano?",
+    "criteria": [
+      "Identifica contratos e datas de início: NatuBrasil maio (~8 meses), Snacks C Q3 (~6 meses), Restaurantes Q3 (~6 meses), Trader Europa Q4 (~3 meses)",
+      "Calcula contribuição proporcional: NatuBrasil ~R$1.200.000 + Snacks ~R$750.000 + Restaurantes ~R$400.000 + Trader ~R$375.000 ≈ R$2.725.000",
+      "Conclui que a contribuição efetiva dos novos contratos em 2026 é ~R$2.725.000, aproximadamente metade do valor anualizado (R$5.600.000)"
+    ],
+    "source": "Doc 2 (Projeção receita Seção 3), Doc 3 (Pipeline Seção 4)"
+  },
+  "L3_06": {
+    "level": 3,
+    "question": "A meta de processamento de castanha para 2026 é compatível com a capacidade de fornecimento da rede de produtores?",
+    "criteria": [
+      "Identifica meta 2026: 450 ton e coleta 2025: 320 ton com 42 famílias",
+      "Identifica que novas famílias contribuem castanha apenas a partir do 2º ano de SAF",
+      "Conclui que a meta de 450 ton exige aumento de ~41% (130 ton adicionais) sobre a produção das 42 famílias atuais, sem contribuição das novas famílias em 2026"
+    ],
+    "source": "Doc 2 (Projeção castanha Seção 3), Doc 4 (Produção rede Seção 2, Ampliação Seção 5)"
+  },
+  "L3_07": {
+    "level": 3,
+    "question": "A projeção de receita de castanha beneficiada para 2026 é internamente consistente com o volume processado?",
+    "criteria": [
+      "Calcula receita/ton 2025: R$5.800.000 ÷ 300 = ~R$19.333/ton",
+      "Calcula receita/ton implícita 2026: R$9.000.000 ÷ 450 = R$20.000/ton",
+      "Conclui que o preço/ton é consistente (~3% de aumento), confirmando que a projeção depende de atingir o volume de 450 ton"
+    ],
+    "source": "Doc 2 (DRE Seção 1, Projeção Seção 3), Doc 4 (Capacidade Seção 1)"
+  },
+  "L3_08": {
+    "level": 3,
+    "question": "Existe risco para os contratos de exportação que dependem de certificação orgânica vigente?",
+    "criteria": [
+      "Identifica que IBD vence março/2026 e renovação prevista abril",
+      "Identifica que exportação orgânica para UE exige certificação vigente",
+      "Identifica que Castanha Premium Europa tem contrato renovado com início em fevereiro",
+      "Conclui que há janela de risco entre março (vencimento) e abril (renovação) durante a qual embarques de exportação podem ser impedidos"
+    ],
+    "source": "Doc 3 (Cenário regulatório Seção 6, Pipeline Seção 4), Doc 4 (Certificações Seção 6)"
+  },
+  "L3_09": {
+    "level": 3,
+    "question": "A projeção de receita de polpa de acerola para 2026 é compatível com a base produtiva atual?",
+    "criteria": [
+      "Calcula receita/ton acerola 2025: R$1.400.000 ÷ 120 = ~R$11.667/ton",
+      "Calcula volume necessário 2026: R$2.400.000 ÷ ~R$11.667 ≈ 206 ton",
+      "Conclui que a projeção exige aumento de ~72% no volume de acerola (de 120 para ~206 ton)"
+    ],
+    "source": "Doc 2 (DRE Seção 1, Projeção Seção 3), Doc 4 (Produção rede Seção 2)"
+  },
+  "L3_10": {
+    "level": 3,
+    "question": "A projeção de receita de subprodutos para 2026 é internamente consistente com o volume de castanha projetado?",
+    "criteria": [
+      "Calcula subprodutos/ton castanha 2025: R$900.000 ÷ 300 = R$3.000/ton",
+      "Calcula subprodutos/ton castanha 2026: R$1.200.000 ÷ 450 = ~R$2.667/ton",
+      "Conclui que a receita por tonelada de subprodutos diminui ~11%, indicando projeção conservadora"
+    ],
+    "source": "Doc 2 (DRE Seção 1, Projeção Seção 3), Doc 4 (Capacidade Seção 1)"
+  },
+  "L3_11": {
+    "level": 3,
+    "question": "O OKR 1 KR2 estabelece meta mínima de participação do mercado interno. A projeção financeira atinge essa meta?",
+    "criteria": [
+      "Identifica meta: mínimo 70% mercado interno",
+      "Identifica mercado interno projetado: R$13.200.000 = 73,3% da receita total",
+      "Conclui que a projeção atinge a meta (73,3% > 70%), com margem de 3,3 pontos percentuais"
+    ],
+    "source": "Doc 1 (OKR 1 KR2 Seção 4), Doc 2 (Receita por canal Seção 3)"
+  },
+  "L3_12": {
+    "level": 3,
+    "question": "A capacidade existente (linha 1) é suficiente para atender a demanda de polpa da NatuBrasil nos primeiros meses do contrato?",
+    "criteria": [
+      "Identifica NatuBrasil: início maio, 50 ton polpa distribuídas mai-dez = ~6,25 ton/mês",
+      "Identifica linha 1: capacidade 300 ton/ano ≈ 25 ton/mês",
+      "Conclui que a linha 1 tem capacidade suficiente para a demanda NatuBrasil em mai-jun"
+    ],
+    "source": "Doc 3 (Pipeline Seção 4), Doc 4 (Capacidade Seção 1, Expansão Seção 3)"
+  },
+  "L3_13": {
+    "level": 3,
+    "question": "O orçamento de assistência técnica para 2026 é compatível com o custo histórico por técnico?",
+    "criteria": [
+      "Calcula custo/técnico 2025: R$408.000 ÷ 3 = R$136.000/técnico",
+      "Calcula orçamento/técnico 2026: R$630.000 ÷ 5 = R$126.000/técnico",
+      "Conclui que o orçamento por técnico diminui ~7%, indicando restrição orçamentária"
+    ],
+    "source": "Doc 2 (DRE Seção 1, Orçamento Seção 4), Doc 4 (Contratação Seção 4)"
+  },
+  "L3_14": {
+    "level": 3,
+    "question": "O orçamento de logística para 2026 é proporcional ao crescimento operacional planejado?",
+    "criteria": [
+      "Identifica logística 2025: R$600.000 para 5 municípios e 42 famílias",
+      "Identifica logística 2026: R$1.200.000 (+100%) para 7 municípios (+40%) e 80 famílias (+90%)",
+      "Conclui que o orçamento cresce 100% enquanto famílias crescem 90% e municípios crescem 40%"
+    ],
+    "source": "Doc 2 (DRE Seção 1, Orçamento Seção 4), Doc 4 (Ampliação rede Seção 5, Logística Seção 2)"
+  },
+  "L3_15": {
+    "level": 3,
+    "question": "A empresa terá estoque de castanha para atender o contrato de exportação no início de 2026?",
+    "criteria": [
+      "Identifica Castanha Premium Europa: início fevereiro/2026",
+      "Identifica safra caju set-dez com castanha in natura estocável por até 6 meses",
+      "Conclui que a castanha da safra 2025 pode ser estocada e entregue a partir de fevereiro"
+    ],
+    "source": "Doc 3 (Pipeline Seção 4), Doc 4 (Sazonalidade Seção 2)"
+  },
+  "L3_16": {
+    "level": 3,
+    "question": "A câmara fria ampliada terá capacidade suficiente para suportar o volume mensal de polpa durante o pico da safra?",
+    "criteria": [
+      "Identifica meta polpa: 400 ton/ano, safra caju ~70% em 4 meses set-dez, câmara ampliada para 200 ton em abril",
+      "Calcula fluxo mensal no pico da safra: polpa de caju concentrada em 4 meses + acerola + sazonais simultâneas → estimativa de ~40-50 ton/mês de fluxo total na câmara",
+      "Conclui que a câmara fria (200 ton) comporta ~3 meses de produção de safra, exigindo expedição contínua para não saturar"
+    ],
+    "source": "Doc 2 (Projeção polpa Seção 3), Doc 4 (Capacidade Seção 1, Sazonalidade Seção 2)"
+  },
+  "L3_17": {
+    "level": 3,
+    "question": "A projeção financeira para exportação em 2026 está coberta pelos contratos confirmados?",
+    "criteria": [
+      "Identifica exportação projetada: R$4.800.000",
+      "Identifica contratos exportação confirmados: Castanha Premium Europa R$3.300.000 + AcerolaPure Japan R$1.500.000 = R$4.800.000",
+      "Conclui que os contratos confirmados cobrem exatamente a projeção, sem margem para perda de qualquer contrato"
+    ],
+    "source": "Doc 2 (Receita por canal Seção 3), Doc 3 (Pipeline Seção 4)"
+  },
+  "L3_18": {
+    "level": 3,
+    "question": "O OKR 4 KR1 estabelece meta de participação mínima das polpas non-caju. A projeção atinge?",
+    "criteria": [
+      "Identifica meta: polpas non-caju ≥ 25% da receita de polpas",
+      "Calcula receita polpas 2026: caju R$4.200.000 + acerola R$2.400.000 + sazonais R$1.200.000 = R$7.800.000; non-caju = R$3.600.000 = 46,2%",
+      "Conclui que a projeção supera a meta (46,2% > 25%)"
+    ],
+    "source": "Doc 1 (OKR 4 KR1 Seção 4), Doc 2 (Projeção receita Seção 3)"
+  },
+  "L3_19": {
+    "level": 3,
+    "question": "Qual é a redução da concentração de receita no Q4 entre 2025 e 2026?",
+    "criteria": [
+      "Calcula Q4/2026 projetado: out R$1.900.000 + nov R$1.900.000 + dez R$1.400.000 = R$5.200.000 = 28,9%",
+      "Identifica que em 2025 o Q4 foi 47%",
+      "Conclui que a projeção reduz concentração do Q4 de 47% para ~29%, queda de 18 p.p."
+    ],
+    "source": "Doc 2 (Fluxo de caixa Seção 2, Receita mensal Seção 3), Doc 4 (Sazonalidade Seção 2)"
+  },
+  "L3_20": {
+    "level": 3,
+    "question": "A média de hectares por família necessária para as novas famílias é compatível com a média atual?",
+    "criteria": [
+      "Calcula média atual: 180 ha ÷ 42 famílias = ~4,3 ha/família",
+      "Calcula necessidade das novas famílias: 220 ha adicionais ÷ 38 novas famílias = ~5,8 ha/família",
+      "Conclui que as novas famílias precisam ter em média ~5,8 ha, 35% mais que a média atual (4,3 ha)"
+    ],
+    "source": "Doc 1 (OKR 3 KR1 Seção 4), Doc 4 (Rede de produtores Seção 2)"
+  },
+  "L3_21": {
+    "level": 3,
+    "question": "Qual é a economia efetiva dos veículos refrigerados no primeiro ano?",
+    "criteria": [
+      "Identifica entrega dos veículos: março/2026 → 10 meses de operação em 2026",
+      "Identifica economia anual projetada: R$180.000/ano",
+      "Calcula economia efetiva 2026: 10/12 × R$180.000 = R$150.000"
+    ],
+    "source": "Doc 2 (CAPEX Seção 5), Doc 4 (Expansão Seção 3)"
+  },
+  "L3_22": {
+    "level": 3,
+    "question": "A receita projetada para o canal PNAE em 2026 é composta por quais contratos? Os valores são compatíveis?",
+    "criteria": [
+      "Identifica projeção PNAE: R$1.500.000",
+      "Identifica contratos PNAE no pipeline: renovação municípios 2025 R$700.000 (Q1) + novo litoral leste R$800.000 (Q2) = R$1.500.000",
+      "Conclui que os dois contratos somam exatamente o valor projetado"
+    ],
+    "source": "Doc 2 (Receita por canal Seção 3), Doc 3 (Pipeline Seção 4)"
+  },
+  "L3_23": {
+    "level": 3,
+    "question": "O OKR 2 KR1 estabelece prazo para a linha 2. O cronograma é compatível?",
+    "criteria": [
+      "Identifica OKR 2 KR1: instalar e operar linha 2 até Q2/2026, ou seja, até junho",
+      "Identifica cronograma: testes em junho, operação plena em julho/Q3",
+      "Conclui que a operação plena inicia no Q3 (julho) — OKR não é atingido integralmente no prazo"
+    ],
+    "source": "Doc 1 (OKR 2 KR1 Seção 4), Doc 4 (Cronograma linha 2 Seção 3)"
+  },
+  "L3_24": {
+    "level": 3,
+    "question": "A projeção de receita para varejo regional é composta por quais clientes? Os valores são compatíveis?",
+    "criteria": [
+      "Identifica varejo regional projetado: R$4.200.000, incluindo NatuBrasil",
+      "Identifica clientes no pipeline: Distribuidora orgânicos regional R$1.800.000 (confirmado) + NatuBrasil R$1.800.000 (negociação) = R$3.600.000",
+      "Conclui que há gap de R$600.000 entre clientes identificados (R$3,6M) e projeção (R$4,2M)"
+    ],
+    "source": "Doc 2 (Receita por canal Seção 3, nota NatuBrasil), Doc 3 (Pipeline Seção 4)"
+  },
+  "L3_25": {
+    "level": 3,
+    "question": "Quais contratos ou operações dependem da câmara fria ampliada (operacional em abril)?",
+    "criteria": [
+      "Identifica câmara fria ampliada operacional em abril/2026",
+      "Identifica que NatuBrasil inicia em maio com 50 ton polpa, e PNAE novo inicia Q2 — ambos requerem polpa congelada",
+      "Conclui que atraso na câmara fria além de abril impacta diretamente o atendimento de contratos que iniciam em maio-junho"
+    ],
+    "source": "Doc 1 (Cronograma Seção 6), Doc 4 (Expansão Seção 3, Capacidade Seção 1)"
+  },
+
+  "L4_01": {
+    "level": 4,
+    "question": "A meta estratégica de priorização do mercado interno é financeiramente sustentável no curto prazo?",
+    "criteria": [
+      "Identifica meta: mínimo 70% mercado interno",
+      "Identifica diferença de margens: 28% interno vs 58% exportação",
+      "Identifica cenários de break-even: 70/30 → 2028, 60/40 → 2026",
+      "Conclui que a meta é sustentável (margem líquida positiva) mas atrasa o retorno do investimento em ~2 anos"
+    ],
+    "source": "Doc 1 (OKR 1 KR2 Seção 4), Doc 2 (Margens Seção 1, Break-even Seção 6)"
+  },
+  "L4_02": {
+    "level": 4,
+    "question": "A meta de expansão da rede de produtores é viável com o plano de assistência técnica atual?",
+    "criteria": [
+      "Identifica meta: 80 famílias com 5 técnicos → 16 famílias/técnico",
+      "Identifica recomendação Embrapa: máximo 12 famílias/técnico para SAF orgânico",
+      "Calcula necessidade: 80 ÷ 12 = ~7 técnicos necessários (vs 5 planejados)",
+      "Conclui que o plano excede a recomendação em 33%, comprometendo qualidade"
+    ],
+    "source": "Doc 1 (OKR 3 Seção 4), Doc 4 (Ampliação rede Seção 5)"
+  },
+  "L4_03": {
+    "level": 4,
+    "question": "O mapa de riscos sustenta a afirmação de 'autonomia total de insumos' do fundador?",
+    "criteria": [
+      "Identifica afirmação do fundador: autonomia total de insumos, SAF não depende de fertilizantes importados",
+      "Identifica riscos operacionais que contradizem: embalagens 30% importadas (R4), diesel 38% do custo de coleta (R6), contêineres refrigerados instáveis (R5)",
+      "Conclui que a autonomia é real para insumos agrícolas, mas a operação industrial depende de insumos afetados pela mesma instabilidade global"
+    ],
+    "source": "Doc 1 (Carta do fundador Seção 1), Doc 4 (Mapa de riscos Seção 7)"
+  },
+  "L4_04": {
+    "level": 4,
+    "question": "A projeção de exportação para 2026 é robusta considerando as ameaças identificadas no mapa de riscos?",
+    "criteria": [
+      "Identifica exportação projetada: R$4.800.000 / 26,7%",
+      "Identifica riscos: câmbio volátil ±15% na receita (R3), contêineres com atrasos de 15-30 dias (R5)",
+      "Identifica que a mitigação de câmbio é apenas hedge parcial e a de contêineres depende de contrato anual com armador",
+      "Conclui que a projeção não embute desconto de risco: R$4.800.000 assume cenário base sem materialização dos riscos R3 e R5"
+    ],
+    "source": "Doc 2 (Receita por canal Seção 3), Doc 4 (Mapa de riscos R3, R5 Seção 7)"
+  },
+  "L4_05": {
+    "level": 4,
+    "question": "A meta de participação do mercado interno é financeiramente sustentável considerando o prazo de retorno?",
+    "criteria": [
+      "Identifica meta: 70% mercado interno",
+      "Identifica diferença de margens: 28% interno vs 58% exportação",
+      "Identifica break-even: 2028 com foco interno vs 2026 com exportação ampliada",
+      "Conclui que manter 70% interno atrasa o retorno do investimento em ~2 anos"
+    ],
+    "source": "Doc 1 (OKR 1 KR2 Seção 4), Doc 2 (Margens Seção 1, Break-even Seção 6)"
+  },
+  "L4_06": {
+    "level": 4,
+    "question": "O plano de assistência técnica é suficiente para a meta de expansão da rede?",
+    "criteria": [
+      "Identifica meta: 80 famílias com 5 técnicos → 16 famílias/técnico",
+      "Identifica recomendação Embrapa: máximo 12 famílias/técnico para SAF orgânico",
+      "Calcula necessidade: 80 ÷ 12 = ~7 técnicos necessários (vs 5 planejados)",
+      "Conclui que o plano é insuficiente: faltam pelo menos 2 técnicos"
+    ],
+    "source": "Doc 1 (OKR 3 Seção 4), Doc 4 (Ampliação rede Seção 5)"
+  },
+  "L4_07": {
+    "level": 4,
+    "question": "A distribuição projetada de receita entre semestres é realista?",
+    "criteria": [
+      "Identifica projeção: H1 ~R$7.800.000 (43%) vs H2 ~R$10.200.000 (57%)",
+      "Identifica sazonalidade: 70% da matéria-prima de caju em set-dez; polpa de caju não permite estoque de matéria-prima",
+      "Identifica que castanha pode ser estocada por até 6 meses mas polpa exige processamento em 48h",
+      "Conclui que a distribuição 57/43 subestima a concentração real, dependendo fortemente de câmara fria e estoque"
+    ],
+    "source": "Doc 2 (Receita mensal Seção 3), Doc 4 (Sazonalidade Seção 2)"
+  },
+  "L4_08": {
+    "level": 4,
+    "question": "A distribuição de receita de polpa de caju ao longo do ano é viável operacionalmente?",
+    "criteria": [
+      "Identifica receita polpa caju projetada ao longo do ano",
+      "Identifica restrição: pedúnculo processado em 48h; safra set-dez; entressafra sem matéria-prima significativa",
+      "Identifica que polpa congelada pode ser estocada na câmara fria (200 ton) e vendida depois",
+      "Conclui que a distribuição de receita é viável somente se a câmara fria comportar estoque suficiente de polpa congelada"
+    ],
+    "source": "Doc 2 (Projeção receita Seção 3), Doc 4 (Sazonalidade Seção 2, Capacidade Seção 1)"
+  },
+  "L4_09": {
+    "level": 4,
+    "question": "A meta de 4 frutas em produção contínua é atingível em 2026?",
+    "criteria": [
+      "Identifica meta: 4 frutas em produção contínua",
+      "Identifica frutas atuais em produção contínua: caju (set-dez) e acerola (mar-nov) = 2 frutas",
+      "Identifica que manga, goiaba e maracujá são sazonais e iniciam processamento apenas em Q3/julho",
+      "Conclui que ter 4 frutas em produção contínua em 2026 é improvável"
+    ],
+    "source": "Doc 1 (OKR 4 KR2 Seção 4), Doc 4 (Cronograma Seção 8, Produção rede Seção 2)"
+  },
+  "L4_10": {
+    "level": 4,
+    "question": "A timeline de expansão da rede de produtores é viável?",
+    "criteria": [
+      "Identifica meta: +38 famílias até dezembro/2026, prospecção a partir de Q2",
+      "Identifica que 2 técnicos novos precisam prospectar, implantar e acompanhar 38 famílias em ~9 meses (~2 famílias/técnico/mês)",
+      "Identifica que novas famílias contribuem com frutas rápidas (acerola) após 6 meses e com castanha apenas após 2 anos",
+      "Conclui que a timeline é agressiva: 38 famílias em ~9 meses com 2 técnicos novos"
+    ],
+    "source": "Doc 1 (OKR 3 Seção 4, Cronograma Seção 6), Doc 4 (Ampliação rede Seção 5, Cronograma Seção 8)"
+  },
+  "L4_11": {
+    "level": 4,
+    "question": "A reserva estratégica é suficiente para cobrir o gap sazonal do primeiro semestre?",
+    "criteria": [
+      "Identifica gap histórico Q1-Q2/2025: R$1.350.000 negativo",
+      "Identifica reserva 2026: R$500.000",
+      "Identifica que o risco R9 reconhece caixa negativo jan-jun sem reserva",
+      "Conclui que R$500.000 cobre apenas ~37% do gap histórico, sendo insuficiente se o padrão se repetir"
+    ],
+    "source": "Doc 2 (Fluxo de caixa Seção 2, Orçamento Seção 4), Doc 4 (Sazonalidade Seção 2, Mapa de riscos R9)"
+  },
+  "L4_12": {
+    "level": 4,
+    "question": "O OKR 1 KR3 (fechar pelo menos 1 nova rede de varejo) é ambicioso ou conservador?",
+    "criteria": [
+      "Identifica OKR 1 KR3: fechar pelo menos 1 nova rede de varejo",
+      "Identifica NatuBrasil: rede de varejo orgânico em negociação avançada, R$1,8M, início previsto maio",
+      "Identifica taxa de conversão histórica de novos contratos: 70%",
+      "Conclui que o OKR é conservador: NatuBrasil em negociação avançada tem alta probabilidade de conversão"
+    ],
+    "source": "Doc 1 (OKR 1 KR3 Seção 4), Doc 3 (Pipeline Seção 4)"
+  },
+  "L4_13": {
+    "level": 4,
+    "question": "A melhoria da margem bruta consolidada é consistente com a mudança de mix entre canais?",
+    "criteria": [
+      "Identifica margens: 34,2% consolidada 2025 → 36% projetada 2026; exportação 58% vs interno 28%",
+      "Identifica mudança de mix: exportação sobe de 20,6% para 26,7% da receita",
+      "Conclui que a melhoria de margem consolidada é inteiramente explicada pela mudança de mix (mais exportação), sem ganho de margem nos canais individuais"
+    ],
+    "source": "Doc 1 (Valores biorregionalistas Seção 2), Doc 2 (DRE Seção 1, Projeção Seção 3, Indicadores Seção 6)"
+  },
+  "L4_14": {
+    "level": 4,
+    "question": "A mitigação de concentração de fornecimento de castanha resolve esse risco em 2026?",
+    "criteria": [
+      "Identifica risco R8: 10 famílias = 45% do volume de castanha",
+      "Identifica mitigação planejada: expandir para 80 famílias",
+      "Identifica que novas famílias não produzem castanha no 1º ano de SAF",
+      "Conclui que a mitigação não resolve o risco em 2026: a concentração permanece inalterada"
+    ],
+    "source": "Doc 2 (Projeção castanha Seção 3), Doc 4 (Mapa de riscos R8, Ampliação Seção 5)"
+  },
+  "L4_15": {
+    "level": 4,
+    "question": "O burn rate projetado para 2026 é adequado para o perfil de sazonalidade?",
+    "criteria": [
+      "Identifica burn rate projetado: 2,8 meses",
+      "Identifica que a entressafra dura ~5 meses (mar-jul) com receita menor",
+      "Identifica que em 2025 a empresa operou com caixa negativo nos 2 primeiros trimestres",
+      "Conclui que 2,8 meses de burn rate é insuficiente para cobrir a entressafra de 5 meses"
+    ],
+    "source": "Doc 2 (Indicadores Seção 6, Fluxo de caixa Seção 2), Doc 4 (Sazonalidade Seção 2)"
+  },
+  "L4_16": {
+    "level": 4,
+    "question": "A análise de mercado confirma a afirmação do fundador sobre 'vantagem estrutural crescente'?",
+    "criteria": [
+      "Identifica afirmação do fundador: autonomia total, vantagem estrutural crescente",
+      "Identifica confirmação parcial: SAF orgânico opera com custo estável enquanto convencionais sofrem alta de 40-80% em fertilizantes",
+      "Identifica ameaças no mesmo documento: rotas marítimas instáveis, câmbio volátil, embalagens com componentes importados",
+      "Conclui que a vantagem é real para insumos agrícolas, mas parcial como vantagem empresarial"
+    ],
+    "source": "Doc 1 (Carta do fundador Seção 1), Doc 3 (Cenário geopolítico Seção 7)"
+  },
+  "L4_17": {
+    "level": 4,
+    "question": "A empresa tem capacidade de absorver a auditoria Fair Trade no Q3?",
+    "criteria": [
+      "Identifica Fair Trade: auditoria Q3/2026",
+      "Identifica outras atividades Q3: linha 2 recém-operacional, início polpas sazonais, preparação safra caju",
+      "Identifica que auditorias exigem documentação e atenção da equipe de qualidade",
+      "Conclui que o Q3 acumula demandas operacionais e de certificação simultaneamente, com risco de sobrecarga"
+    ],
+    "source": "Doc 3 (Cenário regulatório Seção 6), Doc 4 (Certificações Seção 6, Cronograma Seção 8)"
+  },
+  "L4_18": {
+    "level": 4,
+    "question": "A premissa de 'crescimento orgânico de clientes existentes' é sustentada pelos dados?",
+    "criteria": [
+      "Identifica gap: R$18M projetado vs R$16,82M estimado = R$1,18M justificado como crescimento orgânico",
+      "Identifica que 2025 foi o primeiro ano de operação",
+      "Identifica que contratos confirmados já incluem renovações com valores definidos",
+      "Conclui que a premissa é frágil: empresa tem apenas 1 ano de histórico"
+    ],
+    "source": "Doc 2 (Projeção Seção 3, DRE Seção 1), Doc 3 (Pipeline Seção 4, nota)"
+  },
+  "L4_19": {
+    "level": 4,
+    "question": "A receita de dezembro/2026 ser a menor do H2 é justificável?",
+    "criteria": [
+      "Identifica dezembro/2026 projetado: R$1.400.000, menor que out/nov (R$1.900K cada)",
+      "Identifica que dezembro é mês de safra plena com alta produção",
+      "Identifica premissa de queda: encerramento de safra e fechamento comercial",
+      "Conclui que a queda é justificável por fatores comerciais e/ou operacionais de fim de ano (recesso, redução de pedidos, encerramento de safra)"
+    ],
+    "source": "Doc 2 (Receita mensal Seção 3), Doc 4 (Sazonalidade Seção 2, Cronograma Seção 8)"
+  },
+  "L4_20": {
+    "level": 4,
+    "question": "A estratégia de mitigação cambial é compatível com o aumento de exportação?",
+    "criteria": [
+      "Identifica exportação: 20,6% em 2025 → 26,7% em 2026 = aumento de exposição cambial",
+      "Identifica mitigação: hedge parcial via travas de câmbio + meta de manter exportação <30%",
+      "Identifica que R3 classifica probabilidade como alta e impacto como ±15% na receita de exportação",
+      "Conclui que a empresa aumenta exposição cambial enquanto a mitigação é apenas parcial"
+    ],
+    "source": "Doc 2 (Receita por canal Seção 3), Doc 4 (Mapa de riscos R3 Seção 7)"
+  },
+  "L4_21": {
+    "level": 4,
+    "question": "O salto de produtividade implícito entre 2025 e 2026 é plausível?",
+    "criteria": [
+      "Identifica crescimento receita: 76%",
+      "Identifica crescimento equipe: 17% de 87 para 102 fixos",
+      "Identifica aumento de produtividade: R$117K → R$176K por funcionário = +50%",
+      "Conclui que o salto é parcialmente explicável pelo ramp-up, mas +50% em 1 ano é agressivo"
+    ],
+    "source": "Doc 2 (Indicadores Seção 6, DRE Seção 1), Doc 4 (Contratação Seção 4)"
+  },
+  "L4_22": {
+    "level": 4,
+    "question": "A projeção de receita de castanha é compatível com a avaliação de mercado limitado?",
+    "criteria": [
+      "Identifica que mercado de castanha orgânica é descrito como pequeno",
+      "Identifica que o diferencial funciona melhor como ingrediente industrial do que produto final varejo",
+      "Identifica projeção: R$9M de castanha, com exportação e indústria como canais principais",
+      "Conclui que a projeção depende fortemente de clientes industriais e exportação"
+    ],
+    "source": "Doc 2 (Projeção receita castanha Seção 3), Doc 3 (Mercado de orgânicos Seção 2)"
+  },
+  "L4_23": {
+    "level": 4,
+    "question": "A convicção biorregionalista do fundador tem custo financeiro mensurável?",
+    "criteria": [
+      "Identifica missão biorregionalista e meta 70% interno",
+      "Identifica cenários de break-even: 70/30 → 2028; 60/40 → 2026; 100% interno → não atinge até 2029",
+      "Calcula diferença: cenário biorregionalista atrasa break-even em ~2 anos vs exportação ampliada",
+      "Conclui que a convicção tem custo mensurável: cada 10 p.p. a mais de mercado interno substitui margem 58% por 28%"
+    ],
+    "source": "Doc 1 (Missão Seção 2, OKR 1 Seção 4), Doc 2 (Break-even Seção 6)"
+  },
+  "L4_24": {
+    "level": 4,
+    "question": "A estrutura logística planejada é compatível com a expansão para novos municípios?",
+    "criteria": [
+      "Identifica expansão para Cascavel e Jaguaruana",
+      "Identifica logística atual: 3 rotas, 5 municípios, raio ~60km, custo R$180/ton com diesel a 38%",
+      "Identifica que 2 veículos refrigerados novos chegam em março",
+      "Conclui que a adição de municípios expande o raio logístico e pode aumentar custo de coleta, sem estimativa de custo incremental"
+    ],
+    "source": "Doc 1 (OKR 3 Seção 4), Doc 4 (Logística Seção 2, Ampliação Seção 5)"
+  },
+  "L4_25": {
+    "level": 4,
+    "question": "Os recursos de contingência comportam o plano B de aluguel temporário sem comprometer outras necessidades?",
+    "criteria": [
+      "Identifica risco R2: atraso linha 2, plano B = aluguel temporário",
+      "Identifica recursos disponíveis: contingência R$150.000 + reserva R$500.000 = R$650.000",
+      "Identifica que o CAPEX da linha 2 é R$1.200.000 e aluguel custa fração significativa",
+      "Conclui que os R$650K precisariam cobrir simultaneamente aluguel e outros imprevistos, criando competição por recursos escassos"
+    ],
+    "source": "Doc 2 (Orçamento Seção 4, CAPEX Seção 5), Doc 4 (Mapa de riscos R2 Seção 7)"
+  }
+}
