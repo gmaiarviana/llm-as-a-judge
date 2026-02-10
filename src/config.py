@@ -24,8 +24,11 @@ API_URL = (
 RPM_LIMIT = 15
 DELAY = 60 / RPM_LIMIT + 0.5  # ~4.5s entre chamadas
 
-# --- Caminhos ---
-GABARITO_PATH = Path("gabarito.json")
-RESPOSTAS_DIR = Path("respostas")
-RESULTADOS_DIR = Path("resultados")
-PROMPT_PATH = Path("prompt_juiz.txt")
+# --- Caminhos (relativos à raiz do projeto) ---
+PROJECT_ROOT = Path(__file__).parent.parent
+DATA_DIR = PROJECT_ROOT / "data"
+
+GABARITO_PATH = DATA_DIR / "gabarito.json"
+RESPOSTAS_DIR = DATA_DIR / "respostas"
+RESULTADOS_DIR = DATA_DIR / "resultados"
+PROMPT_PATH = DATA_DIR / "prompt_juiz.txt"
