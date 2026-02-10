@@ -4,7 +4,7 @@ import json
 import time
 from pathlib import Path
 
-import gemini
+from llm import get_provider
 from config import DELAY
 
 
@@ -117,7 +117,8 @@ def evaluate_file(
         user_prompt = build_user_prompt(task_id, gab, response_text)
         print(f"  [{idx:>3}/{total}] {task_id}: ", end="", flush=True)
 
-        result = gemini.call(system_prompt, user_prompt)
+        provider = get_provider()
+        result = provider.call(system_prompt, user_prompt)
         api_calls += 1
 
         if result is None:

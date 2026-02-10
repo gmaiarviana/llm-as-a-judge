@@ -27,26 +27,37 @@ Para ativar o venv em sessões futuras:
 
 ```
 llm-as-a-judge/
-├── avaliar.py            # entry point (CLI + orquestração)
-├── config.py             # caminhos e constantes
-├── gemini.py             # wrapper da API Gemini
-├── evaluate.py           # lógica de avaliação
-├── gabarito.json         # critérios das 100 tarefas
-├── prompt_juiz.txt       # system prompt do juiz (lido pelo script)
+├── avaliar.py            # wrapper entry point (root)
+├── README.md             # this file
 ├── .env                  # GEMINI_API_KEY + GEMINI_MODEL
-├── SPEC.md               # especificação de formatos
-├── respostas/            # input — arquivos de resposta (.json)
-└── resultados/           # output — gerado pelo script
+├── .gitignore
+│
+├── src/                  # código-fonte
+│   ├── __init__.py
+│   ├── avaliar.py        # CLI + orquestração (main logic)
+│   ├── config.py         # caminhos e constantes
+│   ├── evaluate.py       # lógica de avaliação
+│   └── gemini.py         # wrapper da API Gemini (não movido, criar se necessário)
+│
+├── data/                 # dados + entrada + saída
+│   ├── gabarito.json     # critérios das 100 tarefas
+│   ├── prompt_juiz.txt   # system prompt do juiz
+│   ├── respostas/        # input — arquivos de resposta (.json)
+│   └── resultados/       # output — gerado pelo script
+│
+└── docs/                 # documentação
+    ├── SPEC.md           # especificação de formatos
+    └── ...
 ```
 
 ## Uso
 
 ```powershell
 # Testar com 1 arquivo (~6 min para 50 tasks)
-python avaliar.py --arquivo gemini25pro_run_01.json
+python -m src.avaliar --arquivo gemini25pro_run_01.json
 
-# Avaliar todos os arquivos em respostas/ (~30 min para 5 arquivos)
-python avaliar.py
+# Avaliar todos os arquivos em data/respostas/ (~30 min para 5 arquivos)
+python -m src.avaliar
 ```
 
 ## Output
