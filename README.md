@@ -1,13 +1,12 @@
 # LLM-as-a-Judge
 
-Avaliador automatizado de respostas de LLMs. Compara respostas contra um gabarito estruturado usando um provedor de LLM (Gemini, OpenAI, etc) como juiz.
+Avaliador automatizado de respostas de LLMs. Compara respostas contra um gabarito estruturado usando OpenAI como juiz.
 
 Parte do experimento de comparação energética da jornada PED.
 
-## Provedores Suportados
+## Provedor
 
-- **Gemini** (padrão): `gemini-2.0-flash`
-- **OpenAI**: `gpt-4`, `gpt-4-turbo`, etc
+- **OpenAI** (único): modelos configurados via `OPENAI_MODEL`
 
 ## Setup
 
@@ -19,25 +18,14 @@ python -m venv .venv
 .venv\Scripts\Activate.ps1
 
 # Instalar dependências
-pip install requests python-dotenv
+pip install -r requirements.txt
 ```
 
-### Configuração de Provedores
+Criar arquivo `.env` na raiz com:
 
-Criar arquivo `.env` na raiz com as variáveis adequadas:
-
-**Para Gemini (padrão):**
 ```
-LLM_PROVIDER=gemini
-GEMINI_API_KEY=sua_chave_aqui
-GEMINI_MODEL=gemini-2.0-flash
-```
-
-**Para OpenAI:**
-```
-LLM_PROVIDER=openai
 OPENAI_API_KEY=sua_chave_aqui
-OPENAI_MODEL=gpt-4
+OPENAI_MODEL=gpt-4o-mini
 ```
 
 Para ativar o venv em sessões futuras:
@@ -46,52 +34,73 @@ Para ativar o venv em sessões futuras:
 .venv\Scripts\Activate.ps1
 ```
 
+## Modos de execução
+
+- **flex** — síncrono, preço de batch, para testes
+- **batch** — assíncrono via Batch API, para produção
+- **standard** — síncrono, preço cheio, fallback
+
 ## Estrutura
 
 ```
 llm-as-a-judge/
-├── README.md             # este arquivo
-├── .env                  # variáveis de ambiente (LLM_PROVIDER, API keys)
+├── BACKLOG.md
+├── README.md
+├── requirements.txt
+├── .env
 ├── .gitignore
 │
-├── src/                  # código-fonte
+├── src/
 │   ├── __init__.py
 │   ├── avaliar.py        # CLI + orquestração (entry point)
-│   ├── config.py         # caminhos e constantes
+│   ├── config.py         # caminhos, constantes e preços
 │   ├── evaluate.py       # lógica de avaliação
-│   └── llm.py            # abstração multi-provider (Gemini, OpenAI)
+│   └── llm.py            # integração OpenAI (síncrona + batch)
 │
-├── data/                 # dados + entrada + saída
-│   ├── gabarito.json     # critérios das 100 tarefas
-│   ├── prompt_juiz.txt   # system prompt do juiz
+├── data/
+│   ├── gabarito.json
+│   ├── prompt_juiz.txt
 │   ├── respostas/        # input — arquivos de resposta (.json)
 │   └── resultados/       # output — gerado pelo script
 │
-└── docs/                 # documentação
-    ├── SPEC.md           # especificação de formatos
+├── docs/
+│   └── SPEC.md
+│
+└── tests/
 ```
 
 ## Uso
 
 ```powershell
-# Testar com 1 arquivo (~6 min para 50 tasks)
-python -m src.avaliar --arquivo gemini25pro_run_01.json
+# Teste rápido com 1 arquivo (flex)
+python -m src.avaliar --modo flex --arquivo gemini25pro_run_01.json
 
-# Avaliar todos os arquivos em data/respostas/ (~30 min para 5 arquivos)
-python -m src.avaliar
+# Produção com todos os arquivos (batch)
+python -m src.avaliar --modo batch
 ```
 
 ## Output
 
-O script gera dois arquivos em `resultados/`:
+O script gera dois arquivos em `data/resultados/`:
 
-**`eval_YYYY-MM-DD_HHMMSS.json`** — veredictos e sumários
+**`eval_YYYY-MM-DD_HHMMSS.json`** — veredictos, sumários e custo
 
 ```json
 {
+  "judge_mode": "standard",
+  "files_evaluated": ["gemini25pro_run_01"],
+  "cost_summary": {
+    "model": "gpt-4o-mini",
+    "mode": "standard",
+    "total_prompt_tokens": 187000,
+    "total_completion_tokens": 25000,
+    "total_tokens": 212000,
+    "api_calls": 50,
+    "estimated_cost_usd": 0.021
+  },
   "results": {
     "gemini25pro_run_01": {
-      "tasks": { "L3_01": 0, "L3_02": 1, "..." : "..." },
+      "tasks": { "L3_01": 0, "L3_02": 1, "...": "..." },
       "summary": {
         "L3": { "evaluated": 25, "success": 18, "rate": 0.72 },
         "L4": { "evaluated": 25, "success": 12, "rate": 0.48 },
@@ -116,36 +125,19 @@ PASSes ficam em uma linha. FAILs recebem detalhamento critério-por-critério:
 - **Veredicto: 0** (C3 ausente)
 ```
 
-## Avaliação por nível
-
-| Nível | Método         | Custo API |
-|-------|----------------|-----------|
-| L1    | String match   | Zero      |
-| L2-L4 | Gemini 2.0 Flash | 1 call/task |
-
-L1 é avaliado localmente (comparação de letras). L2-L4 usam a API com ~4.5s entre chamadas (free tier: 15 req/min).
-
-## Limites do free tier
-
-| Recurso         | Limite         |
-|-----------------|----------------|
-| Requisições/min | 15             |
-| Requisições/dia | 1.500          |
-| Tokens/min      | 1.000.000      |
-
-5 arquivos × 50 tasks = 250 tasks. Com L1 local, são ~190 chamadas API. Cabe em um dia.
-
 ## Troubleshooting
 
-**`❌ GEMINI_API_KEY não encontrada`** — Verifique se `.env` existe na raiz com:
+**`❌ OPENAI_API_KEY não encontrada`** — Verifique se `.env` existe na raiz com:
 
 ```
-GEMINI_API_KEY=sua_chave
-GEMINI_MODEL=gemini-2.0-flash
+OPENAI_API_KEY=sua_chave
+OPENAI_MODEL=gpt-4o-mini
 ```
 
-Para trocar de modelo, edite apenas o `.env`. Opções: `gemini-2.0-flash`, `gemini-2.0-flash-lite`.
+**`⚠ RateLimitError`** — Muitas requisições em pouco tempo. O script retenta automaticamente.
 
-**`⏳ Rate limited`** — O script aguarda 60s automaticamente e retenta.
+**`⚠ APITimeoutError`** — Timeout na OpenAI. Tente novamente ou use `--modo batch`.
 
-**`⚠ JSON inválido`** — Gemini retornou resposta mal formatada. O script retenta até 3x.
+**`⚠ InternalServerError` / `ServiceUnavailableError`** — Instabilidade temporária na OpenAI. Aguarde e rode novamente.
+
+**`⚠ JSON inválido`** — O modelo retornou resposta mal formatada. O script retenta até 3x.

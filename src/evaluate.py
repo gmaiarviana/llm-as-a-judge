@@ -3,7 +3,7 @@
 import json
 from pathlib import Path
 
-from llm import call_openai, build_batch_line
+from .llm import call_openai, build_batch_line
 
 
 # ============================================================

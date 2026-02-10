@@ -7,7 +7,7 @@ from datetime import datetime
 from openai import OpenAI
 from openai.types import Batch
 
-from config import OPENAI_MODEL, BATCH_COMPLETION_WINDOW, BATCH_ENDPOINT
+from .config import OPENAI_MODEL, BATCH_COMPLETION_WINDOW, BATCH_ENDPOINT
 
 # Cliente OpenAI (usa OPENAI_API_KEY do ambiente automaticamente)
 client = OpenAI()
@@ -31,40 +31,54 @@ def call_openai(
     Returns:
         Tupla (resultado_parseado, usage_info)
         - resultado_parseado: dict do JSON ou None se erro
-        - usage_info: {"prompt_tokens": int, "completion_tokens": int}
+        - usage_info: {"prompt_tokens": int, "completion_tokens": int, "effective_mode": str}
     """
     model = model or OPENAI_MODEL
     timeout = 900 if service_tier == "flex" else 120  # 15min flex, 2min standard
+
+    def is_invalid_service_tier(error: Exception) -> bool:
+        message = str(error)
+        return "Invalid service_tier" in message and "400" in message
+
+    def run_request(tier: str | None, request_timeout: int) -> tuple[dict, dict]:
+        response = client.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            temperature=0,
+            response_format={"type": "json_object"},
+            timeout=request_timeout,
+            **({"service_tier": tier} if tier else {}),
+        )
+
+        content = response.choices[0].message.content
+        result = json.loads(content)
+
+        usage_info = {
+            "prompt_tokens": response.usage.prompt_tokens,
+            "completion_tokens": response.usage.completion_tokens,
+            "effective_mode": "flex" if tier == "flex" else "standard",
+        }
+
+        return result, usage_info
     
     # Retry com backoff exponencial
     for attempt in range(3):
         try:
-            response = client.chat.completions.create(
-                model=model,
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt},
-                ],
-                temperature=0,
-                response_format={"type": "json_object"},
-                timeout=timeout,
-                **({"service_tier": service_tier} if service_tier else {}),
-            )
-            
-            # Parsear resposta
-            content = response.choices[0].message.content
-            result = json.loads(content)
-            
-            # Extrair usage
-            usage_info = {
-                "prompt_tokens": response.usage.prompt_tokens,
-                "completion_tokens": response.usage.completion_tokens,
-            }
-            
-            return result, usage_info
+            return run_request(service_tier, timeout)
             
         except (Exception) as e:
             error_type = type(e).__name__
+
+            if service_tier == "flex" and is_invalid_service_tier(e):
+                print(f"⚠️ Flex não suportado para {model}, usando standard")
+                try:
+                    return run_request(None, 120)
+                except Exception as fallback_error:
+                    error_type = type(fallback_error).__name__
+                    e = fallback_error
             
             # Retry para erros recuperáveis
             if attempt < 2 and error_type in ["RateLimitError", "APITimeoutError", "InternalServerError", "ServiceUnavailableError"]:
@@ -75,9 +89,17 @@ def call_openai(
             
             # Erro final
             print(f"❌ Erro na chamada OpenAI (tentativa {attempt+1}/3): {e}")
-            return None, {"prompt_tokens": 0, "completion_tokens": 0}
+            return None, {
+                "prompt_tokens": 0,
+                "completion_tokens": 0,
+                "effective_mode": "standard" if service_tier != "flex" else "flex",
+            }
     
-    return None, {"prompt_tokens": 0, "completion_tokens": 0}
+    return None, {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "effective_mode": "standard" if service_tier != "flex" else "flex",
+    }
 
 
 def build_batch_line(

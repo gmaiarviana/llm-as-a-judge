@@ -1,0 +1,91 @@
+{
+  "eval_timestamp": "2026-02-10T15:13:57",
+  "gabarito_version": "1.1",
+  "judge_model": "gpt-4o-mini",
+  "judge_mode": "standard",
+  "files_evaluated": [
+    "gemini25pro_run_01"
+  ],
+  "cost_summary": {
+    "model": "gpt-4o-mini",
+    "mode": "standard",
+    "total_prompt_tokens": 33380,
+    "total_completion_tokens": 6478,
+    "total_tokens": 39858,
+    "api_calls": 50,
+    "estimated_cost_usd": 0.0089
+  },
+  "results": {
+    "gemini25pro_run_01": {
+      "tasks": {
+        "L3_01": 0,
+        "L3_02": 1,
+        "L3_03": 0,
+        "L3_04": 0,
+        "L3_05": 0,
+        "L3_06": 0,
+        "L3_07": 0,
+        "L3_08": 0,
+        "L3_09": 0,
+        "L3_10": 0,
+        "L3_11": 1,
+        "L3_12": 1,
+        "L3_13": 0,
+        "L3_14": 0,
+        "L3_15": 0,
+        "L3_16": 0,
+        "L3_17": 1,
+        "L3_18": 0,
+        "L3_19": 0,
+        "L3_20": 0,
+        "L3_21": 0,
+        "L3_22": 1,
+        "L3_23": 0,
+        "L3_24": 0,
+        "L3_25": 0,
+        "L4_01": 0,
+        "L4_02": 0,
+        "L4_03": 0,
+        "L4_04": 0,
+        "L4_05": 0,
+        "L4_06": 0,
+        "L4_07": 0,
+        "L4_08": 0,
+        "L4_09": 0,
+        "L4_10": 0,
+        "L4_11": 0,
+        "L4_12": 0,
+        "L4_13": 0,
+        "L4_14": 1,
+        "L4_15": 0,
+        "L4_16": 0,
+        "L4_17": 0,
+        "L4_18": 0,
+        "L4_19": 0,
+        "L4_20": 0,
+        "L4_21": 0,
+        "L4_22": 0,
+        "L4_23": 0,
+        "L4_24": 0,
+        "L4_25": 0
+      },
+      "summary": {
+        "L3": {
+          "evaluated": 25,
+          "success": 5,
+          "rate": 0.2
+        },
+        "L4": {
+          "evaluated": 25,
+          "success": 1,
+          "rate": 0.04
+        },
+        "overall": {
+          "evaluated": 50,
+          "success": 6,
+          "rate": 0.12
+        }
+      }
+    }
+  }
+}

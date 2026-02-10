@@ -39,6 +39,9 @@ PRICING = {
     },
 }
 
+# --- Câmbio ---
+USD_TO_BRL = 5.20  # Atualizar manualmente quando necessário
+
 # --- Batch API config ---
 BATCH_POLL_INTERVAL = 30  # segundos entre polls
 BATCH_COMPLETION_WINDOW = "24h"
@@ -55,18 +58,22 @@ PROMPT_PATH = DATA_DIR / "prompt_juiz.txt"
 
 
 # --- Funções utilitárias ---
-def calculate_cost(model: str, mode: str, prompt_tokens: int, completion_tokens: int) -> float:
-    """Calcula custo em USD baseado no modelo, modo e tokens usados."""
+def calculate_cost(model: str, mode: str, prompt_tokens: int, completion_tokens: int) -> dict:
+    """Calcula custo em USD e BRL baseado no modelo, modo e tokens usados."""
     if model not in PRICING:
         print(f"WARNING: Modelo '{model}' não encontrado na tabela de preços. Custo = 0.0")
-        return 0.0
+        return {"usd": 0.0, "brl": 0.0}
     
     if mode not in PRICING[model]:
         print(f"WARNING: Modo '{mode}' não encontrado para modelo '{model}'. Custo = 0.0")
-        return 0.0
+        return {"usd": 0.0, "brl": 0.0}
     
     pricing = PRICING[model][mode]
     cost_input = (prompt_tokens / 1_000_000) * pricing["input"]
     cost_output = (completion_tokens / 1_000_000) * pricing["output"]
-    
-    return cost_input + cost_output
+    cost_usd = cost_input + cost_output
+
+    return {
+        "usd": cost_usd,
+        "brl": round(cost_usd * USD_TO_BRL, 2),
+    }
