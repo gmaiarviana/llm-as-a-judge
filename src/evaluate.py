@@ -1,11 +1,9 @@
 """Lógica de avaliação: L1 local, L2-L4 via API."""
 
 import json
-import time
 from pathlib import Path
 
-from llm import get_provider
-from config import DELAY
+from llm import call_openai, build_batch_line
 
 
 # ============================================================
@@ -67,15 +65,28 @@ RESPOSTA AVALIADA:
 
 
 # ============================================================
-# AVALIAÇÃO DE UM ARQUIVO
+# AVALIAÇÃO DE UM ARQUIVO — MODO SÍNCRONO
 # ============================================================
 
 def evaluate_file(
-    file_path: Path, gabarito: dict, system_prompt: str
-) -> tuple[str, dict, list, int]:
+    file_path: Path,
+    gabarito: dict,
+    system_prompt: str,
+    service_tier: str | None = None,
+) -> tuple[str, dict, list, dict]:
     """
-    Avalia todas as tasks de um arquivo.
-    Retorna (file_id, tasks_dict, justificativas_list, api_call_count).
+    Avalia todas as tasks de um arquivo de forma síncrona.
+    Retorna (file_id, tasks_dict, justificativas_list, token_usage).
+    
+    Args:
+        file_path: Caminho do arquivo de respostas
+        gabarito: Dict com tasks do gabarito
+        system_prompt: System prompt do juiz
+        service_tier: "flex" para modo flex, None para standard
+    
+    Returns:
+        Tupla (file_id, tasks, justificativas, token_usage)
+        - token_usage: {"prompt_tokens": int, "completion_tokens": int, "api_calls": int}
     """
     data = load_response_file(file_path)
     file_id = data["metadata"]["id"]
@@ -83,7 +94,11 @@ def evaluate_file(
 
     tasks = {}
     justificativas = []
-    api_calls = 0
+    token_usage = {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "api_calls": 0,
+    }
 
     sorted_tasks = sorted(responses.keys())
     total = len(sorted_tasks)
@@ -117,9 +132,10 @@ def evaluate_file(
         user_prompt = build_user_prompt(task_id, gab, response_text)
         print(f"  [{idx:>3}/{total}] {task_id}: ", end="", flush=True)
 
-        provider = get_provider()
-        result = provider.call(system_prompt, user_prompt)
-        api_calls += 1
+        result, usage = call_openai(system_prompt, user_prompt, service_tier=service_tier)
+        token_usage["api_calls"] += 1
+        token_usage["prompt_tokens"] += usage["prompt_tokens"]
+        token_usage["completion_tokens"] += usage["completion_tokens"]
 
         if result is None:
             print("❌ ERRO")
@@ -129,7 +145,6 @@ def evaluate_file(
                 f"- ERRO: falha na chamada API\n"
                 f"- **Veredicto: 0** (erro)\n"
             )
-            time.sleep(DELAY)
             continue
 
         verdict = result.get("verdict", 0)
@@ -154,9 +169,228 @@ def evaluate_file(
             justificativas.append("\n".join(lines))
             print(f"✗ ({reason})")
 
-        time.sleep(DELAY)
+    return file_id, tasks, justificativas, token_usage
 
-    return file_id, tasks, justificativas, api_calls
+
+# ============================================================
+# PREPARAÇÃO DE BATCH
+# ============================================================
+
+def prepare_batch(
+    response_files: list[Path],
+    gabarito: dict,
+    system_prompt: str,
+    output_path: Path,
+) -> tuple[int, int]:
+    """
+    Gera arquivo JSONL com todas as tasks L2-L4 de todos os arquivos.
+    L1 é avaliado localmente (não vai pro batch).
+    
+    Args:
+        response_files: Lista de arquivos de respostas
+        gabarito: Dict com tasks do gabarito
+        system_prompt: System prompt do juiz
+        output_path: Caminho para salvar o JSONL
+    
+    Returns:
+        Tupla (total_lines, total_l1)
+        - total_lines: número de linhas no JSONL (tasks L2-L4)
+        - total_l1: número de tasks L1 avaliadas localmente
+    """
+    batch_lines = []
+    l1_results = {}
+    total_l1 = 0
+    
+    for file_path in response_files:
+        data = load_response_file(file_path)
+        file_id = data["metadata"]["id"]
+        responses = data["responses"]
+        
+        l1_results[file_id] = {}
+        
+        for task_id in sorted(responses.keys()):
+            response_text = responses[task_id]
+            
+            if task_id not in gabarito:
+                continue
+            
+            gab = gabarito[task_id]
+            level = gab["level"]
+            
+            # L1: avaliar localmente
+            if level == 1:
+                verdict = evaluate_l1(response_text, gab["answer"])
+                l1_results[file_id][task_id] = verdict
+                total_l1 += 1
+            
+            # L2-L4: preparar para batch
+            else:
+                user_prompt = build_user_prompt(task_id, gab, response_text)
+                custom_id = f"{file_id}____{task_id}"
+                line = build_batch_line(custom_id, system_prompt, user_prompt)
+                batch_lines.append(line)
+    
+    # Salvar JSONL
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(batch_lines))
+    
+    # Salvar resultados L1
+    l1_path = output_path.with_suffix(".l1.json")
+    with open(l1_path, "w", encoding="utf-8") as f:
+        json.dump(l1_results, f, indent=2, ensure_ascii=False)
+    
+    print(f"✅ Batch preparado: {len(batch_lines)} tasks L2-L4, {total_l1} tasks L1 locais")
+    print(f"   JSONL: {output_path}")
+    print(f"   L1: {l1_path}")
+    
+    return len(batch_lines), total_l1
+
+
+# ============================================================
+# PROCESSAMENTO DE RESULTADOS DO BATCH
+# ============================================================
+
+def process_batch_results(
+    batch_results: list[dict],
+    l1_results_path: Path,
+    gabarito: dict,
+) -> tuple[dict, list, dict]:
+    """
+    Processa resultados do batch + L1 locais e monta output final.
+    
+    Args:
+        batch_results: Lista de resultados do batch (de download_batch_results())
+        l1_results_path: Caminho do arquivo .l1.json
+        gabarito: Dict com tasks do gabarito
+    
+    Returns:
+        Tupla (all_results, all_justificativas, token_usage)
+        - all_results: dict {file_id: {summary, tasks}}
+        - all_justificativas: lista de strings com justificativas
+        - token_usage: {"prompt_tokens": int, "completion_tokens": int, "api_calls": int}
+    """
+    # Carregar L1 locais
+    with open(l1_results_path, encoding="utf-8") as f:
+        l1_data = json.load(f)
+    
+    # Organizar por file_id
+    by_file = {}
+    for file_id, l1_tasks in l1_data.items():
+        by_file[file_id] = {"tasks": dict(l1_tasks)}
+    
+    # Acumular tokens
+    token_usage = {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "api_calls": 0,
+    }
+    
+    # Processar resultados do batch
+    for item in batch_results:
+        custom_id = item["custom_id"]
+        result = item["result"]
+        usage = item["usage"]
+        
+        # Parsear custom_id: file_id____task_id
+        parts = custom_id.split("____")
+        if len(parts) != 2:
+            print(f"⚠️  custom_id inválido: {custom_id}")
+            continue
+        
+        file_id, task_id = parts
+        
+        # Inicializar file_id se necessário
+        if file_id not in by_file:
+            by_file[file_id] = {"tasks": {}}
+        
+        # Guardar resultado
+        if result is None:
+            by_file[file_id]["tasks"][task_id] = 0
+        else:
+            verdict = result.get("verdict", 0)
+            by_file[file_id]["tasks"][task_id] = verdict
+        
+        # Acumular tokens
+        token_usage["prompt_tokens"] += usage["prompt_tokens"]
+        token_usage["completion_tokens"] += usage["completion_tokens"]
+        token_usage["api_calls"] += 1
+    
+    # Gerar justificativas e sumários
+    all_justificativas = []
+    all_results = {}
+    
+    for file_id, file_data in sorted(by_file.items()):
+        tasks = file_data["tasks"]
+        file_justificativas = []
+        
+        # Gerar justificativas para cada task
+        for task_id in sorted(tasks.keys()):
+            verdict = tasks[task_id]
+            
+            if task_id not in gabarito:
+                continue
+            
+            gab = gabarito[task_id]
+            level = gab["level"]
+            
+            # L1: simples comparação
+            if level == 1:
+                if verdict:
+                    file_justificativas.append(f"✓ {task_id} — match")
+                else:
+                    file_justificativas.append(f"✗ {task_id} — no match")
+            
+            # L2-L4: buscar resultado completo do batch
+            else:
+                # Encontrar resultado no batch
+                batch_item = None
+                for item in batch_results:
+                    if item["custom_id"] == f"{file_id}____{task_id}":
+                        batch_item = item
+                        break
+                
+                if batch_item is None or batch_item["result"] is None:
+                    file_justificativas.append(
+                        f"\n### {file_id} — {task_id}\n"
+                        f"- ERRO: resultado não encontrado ou inválido\n"
+                        f"- **Veredicto: 0** (erro)\n"
+                    )
+                    continue
+                
+                result = batch_item["result"]
+                verdict = result.get("verdict", 0)
+                
+                if verdict == 1:
+                    file_justificativas.append(f"✓ {task_id} — all criteria met")
+                else:
+                    lines = [f"\n### {file_id} — {task_id}"]
+                    for c in result.get("criteria", []):
+                        sym = "✓" if c.get("met") else "✗"
+                        evidence = c.get("evidence", "?")
+                        lines.append(f"- C{c.get('id', '?')}: {sym} — {evidence}")
+                    
+                    hall = result.get("hallucination")
+                    if hall:
+                        lines.append(f"- Alucinação: {hall}")
+                    
+                    reason = result.get("fail_reason", "critério ausente")
+                    lines.append(f"- **Veredicto: 0** ({reason})")
+                    file_justificativas.append("\n".join(lines))
+        
+        # Computar sumário
+        summary = compute_summary(tasks)
+        
+        # Guardar resultado final
+        all_results[file_id] = {
+            "summary": summary,
+            "tasks": tasks,
+        }
+        
+        # Adicionar justificativas
+        all_justificativas.extend(file_justificativas)
+    
+    return all_results, all_justificativas, token_usage
 
 
 # ============================================================
