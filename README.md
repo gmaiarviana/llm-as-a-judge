@@ -1,8 +1,13 @@
 # LLM-as-a-Judge
 
-Avaliador automatizado de respostas de LLMs. Compara respostas contra um gabarito estruturado usando Gemini 2.0 Flash como juiz.
+Avaliador automatizado de respostas de LLMs. Compara respostas contra um gabarito estruturado usando um provedor de LLM (Gemini, OpenAI, etc) como juiz.
 
 Parte do experimento de comparação energética da jornada PED.
+
+## Provedores Suportados
+
+- **Gemini** (padrão): `gemini-2.0-flash`
+- **OpenAI**: `gpt-4`, `gpt-4-turbo`, etc
 
 ## Setup
 
@@ -17,6 +22,24 @@ python -m venv .venv
 pip install requests python-dotenv
 ```
 
+### Configuração de Provedores
+
+Criar arquivo `.env` na raiz com as variáveis adequadas:
+
+**Para Gemini (padrão):**
+```
+LLM_PROVIDER=gemini
+GEMINI_API_KEY=sua_chave_aqui
+GEMINI_MODEL=gemini-2.0-flash
+```
+
+**Para OpenAI:**
+```
+LLM_PROVIDER=openai
+OPENAI_API_KEY=sua_chave_aqui
+OPENAI_MODEL=gpt-4
+```
+
 Para ativar o venv em sessões futuras:
 
 ```powershell
@@ -27,17 +50,16 @@ Para ativar o venv em sessões futuras:
 
 ```
 llm-as-a-judge/
-├── avaliar.py            # wrapper entry point (root)
-├── README.md             # this file
-├── .env                  # GEMINI_API_KEY + GEMINI_MODEL
+├── README.md             # este arquivo
+├── .env                  # variáveis de ambiente (LLM_PROVIDER, API keys)
 ├── .gitignore
 │
 ├── src/                  # código-fonte
 │   ├── __init__.py
-│   ├── avaliar.py        # CLI + orquestração (main logic)
+│   ├── avaliar.py        # CLI + orquestração (entry point)
 │   ├── config.py         # caminhos e constantes
 │   ├── evaluate.py       # lógica de avaliação
-│   └── gemini.py         # wrapper da API Gemini (não movido, criar se necessário)
+│   └── llm.py            # abstração multi-provider (Gemini, OpenAI)
 │
 ├── data/                 # dados + entrada + saída
 │   ├── gabarito.json     # critérios das 100 tarefas
@@ -47,7 +69,6 @@ llm-as-a-judge/
 │
 └── docs/                 # documentação
     ├── SPEC.md           # especificação de formatos
-    └── ...
 ```
 
 ## Uso
